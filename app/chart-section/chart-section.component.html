@@ -1,0 +1,48 @@
+<div class="chart-section-container">
+    <div class="chart-controls card">
+      <!-- Chart Type Selection -->
+      <div class="control-group">
+        <label for="chartType">Select Chart Type</label>
+        <div class="control-input-wrapper">
+          <select id="chartType" class="custom-select" (change)="updateChartType($event)">
+            <option value="line" selected>Line</option>
+            <option value="bar">Bar</option>
+            <option value="radar">Radar</option>
+            <option value="pie">Pie</option>
+          </select>
+        </div>
+      </div>
+  
+      <!-- Graph Color Selection -->
+      <div class="control-group">
+        <label for="colorPicker">Select Graph Color</label>
+        <div class="control-input-wrapper color-picker-control">
+          <input type="color" id="colorPicker" (change)="updateChartColor($event)" [value]="selectedColor">
+          <span class="color-hex-value">{{ selectedColor }}</span>
+        </div>
+      </div>
+  
+      <!-- Time Interval Selection -->
+      <div class="control-group">
+        <label for="interval">Select Interval</label>
+        <div class="control-input-wrapper">
+          <select id="interval" class="custom-select" (change)="updateInterval($event)">
+            <option value="1" selected>1 Min</option>
+            <option value="5">5 Min</option>
+            <option value="15">15 Min</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Chart display area -->
+    <div class="stock-chart card">
+      <div class="chart-header">
+        <h2 class="chart-title">Stock Chart</h2>
+      </div>
+      <div class="chart-area">
+        <canvas id="linechart" #linechart></canvas>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,40 @@
+.profile-dropdown-container {
+    position: relative;
+  }
+  
+  .profile-button {
+    
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-color-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 1000;
+    margin-top: 20px;
+    overflow: hidden; /* For rounded corners on list items */
+  }
+  
+  .dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-menu ul li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+  }
+  
+  .dropdown-menu ul li a:hover {
+    background-color: var(--search-bg); /* Use a subtle hover */
+  }
+  

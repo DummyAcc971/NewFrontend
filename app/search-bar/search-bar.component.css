@@ -1,0 +1,215 @@
+
+
+/* ------------------------------------------------------------------------------------ */
+
+/* Base Layout */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--search-bg);
+  border: 1px solid var(--search-border);
+  border-radius: 8px;
+  padding: 3px 5px;
+  min-width: 450px;
+  width: 100%; /* Ensures it takes the full available width */
+  max-width: 500px; /* Limiting width for better layout control */
+  margin: 0 auto; /* Center it horizontally */
+  position: relative;
+}
+
+.search-bar-container .search-icon {
+  color: var(--search-placeholder);
+  margin-right: 8px;
+}
+
+.search-bar-container input {
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.search-bar-container input::placeholder {
+  color: var(--search-placeholder);
+}
+
+.search-bar-container .search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* .search-bar-container .search-button:hover {
+  background-color: #0056b3;
+} */
+
+.search-bar-container .search-button:active {
+  background-color: #004085;
+  transform: scale(0.98);
+}
+
+/* .search-bar-container .search-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+} */
+
+.suggestion-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover,
+.suggestion-item.active {
+  background-color: #f0f0f0;
+}
+
+.suggestion-symbol {
+  font-weight: bold;
+  color: #333;
+}
+
+.suggestion-description {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Responsive Design - Mobile, Tablet, and Desktop */
+
+/* Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .search-bar-container {
+    flex-direction: column; /* Stack elements vertically */
+    padding: 8px; /* Add more padding for better touch usability */
+    min-width: auto; /* Remove fixed minimum width */
+    width: 100%; /* Ensure it takes full width */
+    max-width: 100%; /* Full width on small screens */
+  }
+
+  .search-bar-container .search-icon {
+    margin-right: 0;
+    margin-bottom: 8px; /* Space between icon and input */
+  }
+
+  .search-bar-container input {
+    font-size: 1rem; /* Increase font size for easier readability on mobile */
+  }
+
+  .search-bar-container .search-button {
+    width: 100%; /* Make the button take full width */
+    padding: 10px 0; /* More padding for better usability */
+    font-size: 14px; /* Increase font size */
+  }
+
+  .suggestion-list {
+    max-height: 150px; /* Reduce suggestion list height */
+  }
+
+  .suggestion-item {
+    padding: 12px; /* More padding for larger touch targets */
+  }
+
+  .suggestion-symbol {
+    font-size: 0.9rem; /* Reduce font size for mobile */
+  }
+
+  .suggestion-description {
+    font-size: 0.8rem; /* Slightly reduce font size for mobile */
+  }
+}
+
+/* Tablet Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .search-bar-container {
+    padding: 6px 10px; /* Adjust padding for tablet screens */
+    max-width: 100%; /* Full width on tablet */
+  }
+
+  .search-bar-container .search-icon {
+    margin-right: 6px;
+  }
+
+  .search-bar-container input {
+    font-size: 1rem; /* Slightly larger text for tablet */
+  }
+
+  .search-bar-container .search-button {
+    padding: 8px 12px; /* Slightly larger padding */
+    font-size: 15px; /* Increase font size slightly */
+  }
+
+  .suggestion-list {
+    max-height: 180px; /* Adjust suggestion list height */
+  }
+
+  .suggestion-item {
+    padding: 12px;
+  }
+
+  .suggestion-symbol {
+    font-size: 1rem; /* Increase font size for tablet */
+  }
+
+  .suggestion-description {
+    font-size: 0.9rem; /* Increase font size for tablet */
+  }
+}
+
+/* Desktop Devices (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .search-bar-container {
+    padding: 6px 16px; /* Standard padding for desktop */
+    max-width: 600px; /* Limit width for larger screens */
+  }
+
+  .search-bar-container input {
+    font-size: 1rem; /* Standard font size */
+  }
+
+  .search-bar-container .search-button {
+    padding: 8px 14px;
+    font-size: 16px;
+  }
+
+  .suggestion-list {
+    max-height: 250px; /* Allow for more suggestions on larger screens */
+  }
+
+  .suggestion-item {
+    padding: 14px;
+  }
+
+  .suggestion-symbol {
+    font-size: 1.1rem; /* Increase font size for desktop */
+  }
+
+  .suggestion-description {
+    font-size: 1rem; /* Increase font size for desktop */
+  }
+}

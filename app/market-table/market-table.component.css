@@ -1,0 +1,254 @@
+/*
+
+.table-container {
+    background-color: var(--bg-color-alt);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+    overflow-x: auto;
+    padding: 16px;
+    margin-top: 50px;;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  tr td{
+    width : 100px;
+  }
+  
+  thead th {
+    background-color: var(--table-header-bg);
+    color: var(--text-color-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+  
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  tbody tr:hover {
+    background-color: var(--table-row-hover-bg);
+  }
+  
+  .text-right {
+    text-align: left;
+  }
+  
+  .stock-symbol {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .stock-symbol:hover {
+    text-decoration: underline;
+  }
+  
+  .positive {
+    color: var(--success-color);
+  }
+  
+  .positive i {
+    margin-right: 4px;
+  }
+  
+  .negative {
+    color: var(--danger-color);
+  }
+  
+  .negative i {
+    margin-right: 4px;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: var(--text-color-secondary);
+    padding: 20px;
+    font-style: italic;
+  }
+  
+  */
+
+
+  /*--------------------------------------------------------------------------------------------*/
+  .table-container {
+    background-color: var(--bg-color-alt);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+    overflow-x: auto; /* For responsiveness on small screens */
+    padding: 16px; /* Add some padding inside the container */
+    margin-top: 50px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  tr td {
+    width: 100px;
+  }
+  
+  thead th {
+    background-color: var(--table-header-bg);
+    color: var(--text-color-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+  
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  tbody tr:hover {
+    background-color: var(--table-row-hover-bg);
+  }
+  
+  .text-right {
+    text-align: left;
+  }
+  
+  .stock-symbol {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .stock-symbol:hover {
+    text-decoration: underline;
+  }
+  
+  .positive {
+    color: var(--success-color);
+  }
+  
+  .positive i {
+    margin-right: 4px;
+  }
+  
+  .negative {
+    color: var(--danger-color);
+  }
+  
+  .negative i {
+    margin-right: 4px;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: var(--text-color-secondary);
+    padding: 20px;
+    font-style: italic;
+  }
+  
+  /* Responsive adjustments */
+  
+  /* For mobile devices */
+  @media (max-width: 768px) {
+    .table-container {
+      padding: 8px; /* Reduce padding for mobile */
+      margin-top: 20px; /* Reduce top margin */
+    }
+  
+    table {
+      font-size: 0.75rem; /* Smaller font size for mobile */
+    }
+  
+    th, td {
+      padding: 8px 10px; /* Reduce padding for smaller screens */
+    }
+  
+    /* Make table horizontally scrollable */
+    .table-container {
+      overflow-x: auto;
+    }
+  
+    /* Stack the table rows */
+    tbody tr {
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    tbody tr td {
+      display: block;
+      width: auto;
+      text-align: right;
+      border-bottom: 1px solid var(--border-color);
+    }
+  
+    tbody tr td:nth-child(odd) {
+      background-color: var(--table-row-hover-bg); /* Light background for odd cells */
+      font-weight: 600;
+    }
+  
+    tbody tr td:nth-child(even) {
+      font-weight: normal;
+    }
+  
+    /* Adjust text align for readability */
+    tbody tr td:first-child {
+      font-weight: bold;
+    }
+  }
+  
+  /* For tablets and medium-sized screens */
+  @media (max-width: 1024px) {
+    .table-container {
+      margin-top: 30px;
+    }
+  
+    table {
+      font-size: 0.85rem; /* Slightly larger font size for tablets */
+    }
+  
+    th, td {
+      padding: 10px 12px; /* Adjust padding for better legibility */
+    }
+  
+    .table-container {
+      overflow-x: auto;
+    }
+  }
+  
+  /* For large screens (desktops and above) */
+  @media (min-width: 1024px) {
+    .table-container {
+      margin-top: 50px; /* Default top margin */
+    }
+  
+    table {
+      font-size: 0.9rem; /* Default font size */
+    }
+  
+    th, td {
+      padding: 12px 15px; /* Default padding */
+    }
+  
+    .table-container {
+      overflow-x: auto; /* Ensure scrolling on large screens as well */
+    }
+  }
+  
