@@ -1,0 +1,100 @@
+<div class="page-container">
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a routerLink="/">
+          <span class="logo-stox">Stox</span><span class="logo-flick">Flick</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+          <li><a href="/about-us" routerLinkActive="active">About Us</a></li>
+          <li><a href="/login" routerLinkActive="active">Login</a></li>
+          <li><a href="/signup" routerLinkActive="active">Signup</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero-section">
+    <div>
+      <h1>Welcome to StoxFlick</h1>
+      <p>Your premium stock market dashboard for intelligent investing and market analysis.</p>
+
+      <!-- Search Section -->
+      <div class="search-container">
+        <form class="search-form" (ngSubmit)="searchStock()">
+          <input type="text" name="stockSymbol" [(ngModel)]="searchSymbol" (input)="fetchStockSuggestions(searchSymbol)"
+            placeholder="Enter stock symbols (e.g., AAPL, MSFT, TSLA)" aria-label="Stock Symbol Search" class="search-input" />
+          <button type="submit" class="btn btn-primary" [disabled]="isSearchDisabled">Search</button>
+        </form>
+
+        <!-- Suggestions Dropdown -->
+        <div *ngIf="stockSuggestions.length > 0" class="suggestions-dropdown">
+          <li *ngFor="let suggestion of stockSuggestions" (click)="selectSuggestion(suggestion)">
+            {{ suggestion }}
+          </li>
+        </div>
+        
+      </div>
+
+      <!-- Stock Details Modal -->
+      <div *ngIf="isModalOpen" class="modal-overlay" (click)="closeModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <div class="modal-header">
+            <div style="display: flex;">
+              <em class="material-icons" style="color: #2563eb;">trending_up</em>
+              <h2>Stock Details</h2>
+            </div>
+            <span class="close-btn" (click)="closeModal()">&times;</span>
+          </div>
+          <p class="detp"><strong>Symbol:</strong> {{ stockData.symbol }}</p>
+          <p class="detp"><strong>Current Price:</strong> {{ stockData.price }}</p>
+          <p class="detp"><strong>Open:</strong> {{ stockData.open }}</p>
+          <p class="detp"><strong>High:</strong> {{ stockData.high }}</p>
+          <p class="detp"><strong>Low:</strong> {{ stockData.low }}</p>
+          <p class="detp"><strong>Previous Close:</strong> {{ stockData.previousClose }}</p>
+          <div class="chart-container">
+            <h3>Stock Price Chart</h3>
+            <canvas #stockChart id="stockChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <p class="guest-info">
+        As a guest, you can search for stock trends. <a routerLink="/signup">Sign up</a> for stock details and more.
+      </p>
+
+      <!-- Feature Section -->
+      <section class="features-section">
+        <div class="feature-card">
+          <div class="icon search-icon" aria-hidden="true"><em class="material-icons">search</em></div>
+          <h3>Search any stock symbol</h3>
+          <p>Get detailed information on thousands of stocks instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon" aria-hidden="true"><em class="material-icons">trending_up</em></div>
+          <h3>Real-time market data</h3>
+          <p>Stay updated with the latest market movements.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon" aria-hidden="true"><em class="material-icons">bar_chart</em></div>
+          <h3>Interactive Charts</h3>
+          <p>Analyze stock performance with dynamic charts.</p>
+        </div>
+      </section>
+    </div>
+    <footer class="app-footer">
+   
+      <div class="copyright">
+        <p>© 2025 StoxFlick. All rights reserved.</p>
+        <p>Data provided for informational purposes only.</p>
+      </div>
+    
+  </footer>
+  </main>
+
+  <!-- Footer -->
+ 
+</div>

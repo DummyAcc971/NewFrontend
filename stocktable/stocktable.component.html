@@ -1,0 +1,32 @@
+<div class="bg-white p-4 rounded-lg shadow h-full overflow-hidden">
+    <h2 class="text-lg font-semibold mb-4">Trending Tickers</h2>
+  
+    <div class="overflow-auto max-h-[430px]">
+      <table class="w-full table-fixed text-sm border-collapse">
+        <thead class="bg-blue-50 text-blue-600 sticky top-0">
+          <tr>
+            <th class="px-4 py-3 font-semibold rounded-l-[8px] min-w-[120px] text-center">SYMBOL</th>
+            <th class="px-4 py-3 font-semibold min-w-[200px] text-center">NAME</th>
+            <th class="px-4 py-3 font-semibold min-w-[120px] text-center">PRICE</th>
+            <th class="px-4 py-3 font-semibold min-w-[140px] text-center">CHANGE %</th>
+            <th class="px-4 py-3 font-semibold min-w-[180px] text-center">TRENDING SCORE</th>
+            <th class="px-4 py-3 font-semibold rounded-r-[8px] min-w-[140px] text-center">QUOTE TYPE</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr *ngFor="let stock of stocks" class="border-b hover:bg-[#F4F4F4]">
+            <td class="px-4 py-3 text-center">{{ stock.symbol }}</td>
+            <td class="px-4 py-3 text-center">{{ stock.longName }}</td>
+            <td class="px-4 py-3 text-center">{{ stock.regularMarketPrice }}</td>
+            <td class="px-4 py-3 text-center" 
+                [ngClass]="stock.regularMarketChangePercent < 0 ? 'text-red-500' : 'text-green-600'">
+              {{ stock.regularMarketChangePercent }}%
+            </td>
+            <td class="px-4 py-3 text-center">{{ stock.trendingScore }}</td>
+            <td class="px-4 py-3 text-center">{{ stock.quoteType }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

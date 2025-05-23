@@ -1,0 +1,23 @@
+<div class="search-bar-container">
+    <i class="fas fa-search search-icon"></i>
+    <input
+      type="text"
+      [formControl]="searchControl"
+      (keyup.enter)="fetchStockDetails()"
+      placeholder=" Search stock symbol..."
+      aria-label="Search stock symbol"
+    />
+
+    <button (click)="fetchStockDetails()" class="search-button">Search</button>
+    <ul *ngIf="suggestions.length > 0" #suggestionList class="suggestion-list">
+      <li
+        *ngFor="let suggestion of suggestions; let i = index"
+        [class.active]="i === selectedIndex"
+        (click)="selectSuggestion(suggestion)"
+        class="suggestion-item"
+      >
+        <span class="suggestion-symbol">{{ suggestion.symbol }}</span>
+        <span class="suggestion-description">{{ suggestion.description }}</span>
+      </li>
+    </ul>
+</div>

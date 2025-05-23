@@ -1,0 +1,193 @@
+/* General Card Styles */
+.card {
+    background-color:  var(--header-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .chart-section-container {
+    padding: 10px;
+    background-color: #F9FAFB; /* gray-50 */
+  }
+  
+  /* Chart Controls Card */
+  .chart-controls.card {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 16px; /* Consistent with image's density */
+  }
+  
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+  }
+  .control-group:nth-child(1) { flex-grow: 1.2; } /* Chart Type */
+  .control-group:nth-child(2) { flex-grow: 1; }   /* Graph Color */
+  .control-group:nth-child(3) { flex-grow: 0.8; } /* Time Interval */
+  
+  .control-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-color); /* gray-500 */
+    margin-bottom: 4px;
+    font-weight: 500; /* Matching image */
+  }
+  
+  /* Wrapper for input elements to apply common styling like height */
+  .control-input-wrapper {
+    height: 36px; /* Fixed height for alignment */
+    box-sizing: border-box;
+    display: flex; /* For color picker layout */
+    align-items: center; /* For color picker layout */
+    border: 1px solid #D1D5DB; /* gray-300 */
+    border-radius: 6px;
+    background-color: var(--search-bg); /* gray-50 */
+    padding: 0 10px; /* Horizontal padding inside the wrapper */
+  }
+  
+  /* Styling for <select> elements */
+  .custom-select {
+    width: 100%;
+    height: 100%; /* Fill the wrapper */
+    border: none; /* Border is on the wrapper */
+    background-color: var(--search-bg); /* Background is on the wrapper */
+    font-size: 13px;
+    color: var(--text-color); /* gray-700 */
+    padding-left: 5px; /* Padding handled by wrapper */
+    padding-right: 20px; /* Space for arrow */
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-13z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0px center; /* Adjusted position */
+    background-size: 10px 10px;
+    cursor: pointer;
+  }
+  .custom-select:focus {
+    outline: none; /* Remove default focus outline as wrapper handles visual cues */
+  }
+
+  
+  .control-input-wrapper:has(.custom-select:focus) { /* Style wrapper on select focus */
+    border-color: #80bdff; /* Example focus color */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  
+  /* Styling for Color Picker Control */
+  .color-picker-control {
+    /* .control-input-wrapper provides border, padding, bg, radius */
+    gap: 8px; /* Space between color swatch and hex text */
+  }
+  
+  .color-picker-control input[type="color"] {
+    width: 20px;  /* Size of the clickable color swatch */
+    height: 20px;
+    border: 1px solid #E5E7EB; /* gray-200, border for the swatch itself */
+    border-radius: 4px;
+    padding: 0; /* Critical for appearance */
+    background-color: transparent;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  /* Inner swatch styling for WebKit/Blink */
+  .color-picker-control input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  .color-picker-control input[type="color"]::-webkit-color-swatch {
+    border: none; /* Remove inner border if any */
+    border-radius: 3px; /* Slightly rounded inner swatch */
+  }
+  /* Inner swatch styling for Firefox */
+  .color-picker-control input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .color-picker-control .color-hex-value {
+    font-size: 13px;
+    color: var(--text-color); /* gray-500 for hex code */
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1; /* Ensure it aligns well vertically */
+    flex-grow: 1; /* Allow text to take remaining space */
+  }
+  
+  
+  /* Chart Display Area */
+  .stock-chart.card {
+    margin-top: 20px;
+  }
+  .stock-chart .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .stock-chart .chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color); /* gray-800 */
+    margin: 0;
+  }
+  .stock-chart .chart-area {
+    height: 280px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FDFDFD;
+    border: 1px solid #F3F4F6;
+    border-radius: 6px;
+  }
+  .stock-chart canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #f0f0f0;
+    color: #777;
+    text-align: center;
+    line-height: 280px;
+    font-style: italic;
+  }
+  
+  
+  /* If using canvas for static text, you might want to add this to the canvas tag in HTML
+     For instance: <canvas id="linechart">Chart will be drawn here</canvas>
+     and then the CSS can style the fallback content if canvas is not supported or JS fails.
+     However, the above CSS already has a background for the chart-area.
+  */
+  
+  
+  .chart-debug-info {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #6B7280; /* gray-500 */
+    border-top: 1px solid #E5E7EB; /* gray-200 */
+    padding-top: 10px;
+  }
+  .chart-debug-info p {
+    margin: 4px 0;
+  }
+  .debug-color-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  .chart-section-container{
+    background-color: var(--bg-color);
+  }
+
+ 

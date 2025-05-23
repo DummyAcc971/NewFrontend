@@ -1,0 +1,20 @@
+.app-footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--card-bg); /* Slightly different from header */
+    border-top: 1px solid var(--header-border-color);
+    font-size: 0.875rem;
+    color: var(--text-muted-color);
+    margin-top: auto;
+  }
+  .footer-links {
+      margin-top: 8px;
+  }
+  .footer-links a {
+      color: var(--text-muted-color);
+      margin: 0 8px;
+      font-size: 0.8rem;
+  }
+  .footer-links a:hover {
+      color: var(--primary-color);
+  }

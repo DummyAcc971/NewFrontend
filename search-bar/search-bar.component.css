@@ -1,0 +1,97 @@
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--search-bg);
+    border: 1px solid var(--search-border);
+    border-radius: 8px;
+    padding: 3px 5px;
+    min-width: 450px; /* Or use flex-grow in header */
+  }
+  
+  .search-bar-container .search-icon {
+    color: var(--search-placeholder);
+    margin-right: 8px;
+  }
+  
+  .search-bar-container input {
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+  
+  .search-bar-container input::placeholder {
+    color: var(--search-placeholder);
+  }
+  .search-bar-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .suggestion-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .suggestion-item:hover,
+  .suggestion-item.active {
+    background-color: #f0f0f0;
+  }
+  
+  .suggestion-symbol {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .suggestion-description {
+    font-size: 0.9em;
+    color: #666;
+  }
+  .search-button {
+    background-color: #007bff; /* Primary blue color */
+    color: #fff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 6px 8px; /* Padding for size */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .search-button:active {
+    background-color: #004085; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly shrink on click */
+  }
+  
+  .search-button:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add focus shadow */
+  }

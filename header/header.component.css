@@ -1,0 +1,114 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .header-left {
+    flex-shrink: 0; /* Prevent logo from shrinking */
+  }
+  
+  .header-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /*Center search bar if space allows*/
+    padding: 0 20px; /* Give it some breathing room */
+    max-width: 400px; /* Limit search bar width */
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between nav items and icons */
+  }
+  
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between nav buttons */
+  }
+  
+  .nav-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--header-text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .nav-button i {
+    font-size: 0.9rem; /* Icon size relative to text */
+  }
+  
+  .nav-button:hover {
+    background-color: var(--search-bg); /* Subtle hover */
+    color: var(--primary-color);
+  }
+  
+  .nav-button.active {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .nav-button.active i {
+    color: white; /* Ensure icon color matches text on active */
+  }
+  
+  a{
+    margin-left: 50px;
+  }
+  
+  .main-nav{
+    color : var(--bluelight);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header-center {
+      display: none; /* Hide search bar on smaller screens or move it */
+    }
+    .main-nav a span {
+      display: none; /* Hide text, show only icons */
+    }
+    .main-nav {
+    }
+
+
+    .main-nav a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff; /* Primary blue color */
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.main-nav a:active {
+  background-color: #004085; /* Even darker blue on click */
+  transform: scale(0.98); /* Slightly shrink on click */
+}
+
+.main-nav a i {
+  margin-right: 5px; /* Add spacing between the icon and text */
+}
+
+  }

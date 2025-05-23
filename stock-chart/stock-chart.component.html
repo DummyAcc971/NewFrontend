@@ -1,0 +1,24 @@
+<div class="stock-chart" *ngIf="isBrowser">
+    <!-- Chart Type Selection -->
+    <label for="chartType">{{ 'STOCKCHART.SELECT_TYPE' | translate }}</label>
+    <select id="chartType" [(ngModel)]="selectedChartType" (change)="safeRenderChart()">
+        <option value="line">{{ 'STOCKCHART.LINE' | translate }}</option>
+        <option value="bar">{{ 'STOCKCHART.BAR' | translate }}</option>
+        <option value="radar">{{ 'STOCKCHART.RADAR' | translate }}</option>
+        <option value="pie">{{ 'STOCKCHART.PIE' | translate }}</option>
+    </select>
+
+    <!-- Color Picker -->
+    <label for="colorPicker">{{ 'STOCKCHART.SELECT_COLOR' | translate }}</label>
+    <input type="color" id="colorPicker" (change)="updateChartColor($event)">
+
+    <!-- Interval Selection -->
+    <label for="interval">{{ 'STOCKCHART.SELECT_INTERVAL' | translate }}</label>
+    <select id="interval" (change)="updateInterval($event)">
+        <option value="1">{{ 'STOCKCHART.INTERVAL_1' | translate }}</option>
+        <option value="5">{{ 'STOCKCHART.INTERVAL_5' | translate }}</option>
+        <option value="15">{{ 'STOCKCHART.INTERVAL_15' | translate }}</option>
+    </select>
+
+    <canvas #linechart></canvas>
+</div>

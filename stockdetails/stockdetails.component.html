@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stock Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans h-screen overflow-hidden">
+
+  <!-- Layout Wrapper: Sidebar + Main Content -->
+  <div class="flex h-full">
+    
+    <!-- Sidebar -->
+    <aside class="w-56 bg-white flex flex-col justify-between p-3 shadow rounded-2xl">
+      <div class="">
+        <div class="text-center text-blue-600 text-2xl font-semibold py-4">
+          {{ 'STOCKDETAILS.STOX' | translate }}<span class="font-bold text-black">{{ 'STOCKDETAILS.FLICK' | translate }}</span>
+        </div>
+        <nav class="space-y-4">
+          <a href="/dashboard" class="flex items-center gap-3 px-4 py-2 rounded-lg bg-[#F4F7FF] hover:bg-gray-100 text-gray-700 font-medium">
+            <img src="assets/Vector.svg" alt="Dashboard Icon" class="w-5 h-5" />
+            <span class="text-blue-600">{{ 'DASHBOARD.SIDEBAR_DASHBOARD' | translate }}</span>
+          </a>
+        </nav>
+      </div>
+     
+      <div class="p-4 flex justify-center">
+        <a class="text-blue-600 text-sm font-medium flex items-center gap-2 cursor-pointer" (click)="signOut()">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+          </svg>
+          {{ 'DASHBOARD.SIDEBAR_SIGN_OUT' | translate }}
+        </a>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="flex-1 p-2  overflow-auto">
+      <div class="flex flex-col gap-4">
+        <app-search></app-search>
+
+        <!-- Stock Info Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Card 1 -->
+          <div class="bg-white p-4 rounded-lg shadow">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-2xl font-bold">{{ stockData.symbol }}</h2>
+              <p class="text-2xl font-semibold">${{ stockData.currentPrice }}</p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-zinc-600 font-medium">{{ 'STOCKDETAILS.CHANGE' | translate }}</p>
+                <p class="text-green-600 text-xl font-semibold">{{ stockData.change }}</p>
+              </div>
+              <div>
+                <p class="text-zinc-600 font-medium">{{ 'STOCKDETAILS.PERCENT_CHANGE' | translate }}</p>
+                <p class="text-green-600 text-xl font-semibold">{{ stockData.percentChange | number:'1.2-2'}}%</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-4 rounded-lg shadow">
+            <div class="flex justify-between mb-4">
+              <div>
+                <p class="text-sm text-zinc-600">{{ 'STOCKDETAILS.OPEN' | translate }}</p>
+                <p class="text-lg font-semibold">${{ stockData.open }}</p>
+              </div>
+              <div>
+                <p class="text-sm text-zinc-600">{{ 'STOCKDETAILS.CLOSE' | translate }}</p>
+                <p class="text-lg font-semibold">${{ stockData.previousClose }}</p>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <p class="text-sm text-zinc-600">{{ 'STOCKDETAILS.LOW' | translate }}</p>
+                <p class="text-lg font-semibold text-red-600">${{ stockData.low }}</p>
+              </div>
+              <div>
+                <p class="text-sm text-zinc-600">{{ 'STOCKDETAILS.HIGH' | translate }}</p>
+                <p class="text-lg font-semibold text-green-600">${{ stockData.high }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-4 rounded-lg shadow">
+            <p class="font-semibold">{{ 'STOCKDETAILS.TODAYS_RANGE' | translate }}</p>
+            <div class="flex justify-between text-sm font-semibold mt-1">
+              <span class="text-red-600">${{ stockData.low }}</span>
+              <span class="text-green-600">${{ stockData.high }}</span>
+            </div>
+            
+            <div class="w-full h-2 bg-gray-200 rounded-full mt-2">
+              <div class="h-2 bg-blue-500 rounded-full" [style.width.%]="stockData.progress"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="bg-white p-4 rounded-lg shadow h-fit">
+          <app-stock-chart></app-stock-chart>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+/* General Card Styles */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .card-title {
+    font-size: 14px; /* Adjusted from image */
+    font-weight: 600; /* semibold */
+    color: var(--text-color); /* gray-700 */
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  .label {
+    font-size: 12px;
+    color: var(--text-color); /* gray-500 */
+    margin-bottom: 2px;
+  }
+  
+  .value {
+    font-size: 14px;
+    color: var(--text-color); /* gray-800 */
+    font-weight: 500; /* medium */
+  }
+  .value-red { color: #EF4444; } /* red-500 */
+  .value-green { color: #10B981; } /* emerald-500 */
+  
+  /* Info Cards Container */
+  .info-cards-container {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background-color: #F9FAFB; /* gray-50 */
+  }
+  
+  /* AAPL Card Specifics */
+  .aapl-card {
+    flex: 0 0 40%; /* Approx width based on image */
+    background-color: #374DAF; /* Custom blue from image */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .aapl-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Reduced margin for tighter layout */
+  }
+  
+  .ticker {
+    font-size: 28px; /* Adjusted */
+    font-weight: bold;
+  }
+  
+  .company-name {
+    font-size: 12px;
+    color: #D1D5DB; /* gray-300 */
+  }
+  
+  .price-section {
+    text-align: right;
+  }
+  
+  .current-price {
+    font-size: 28px; /* Adjusted */
+    font-weight: bold;
+  }
+  
+  .price-change {
+    font-size: 12px;
+  }
+  .price-change.negative { color: #FCA5A5; /* red-300 */ }
+  .price-change.positive { color: #6EE7B7; /* emerald-300 */ }
+  .price-change span { margin-right: 2px; }
+  
+  .aapl-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #D1D5DB; /* gray-300 */
+    margin-top: auto; /* Pushes footer to bottom */
+  }
+  
+  /* Trading Information Card Specifics */
+  .trading-info-card {
+    flex: 1;
+    background-color: var(--search-bg);
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 12px; /* row-gap column-gap */
+  }
+  
+  /* Today's Range Card Specifics */
+  .todays-range-card {
+    flex: 1;
+    background-color: var(--search-bg);
+  }
+  
+  .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6B7280; /* gray-500 */
+      margin-bottom: 2px;
+  }
+  .range-value{
+      color: var(--text-color); /* blue-500 */
+      font-weight: bold;
+  }
+  
+  .range-bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-top: 4px; /* Space for labels */
+  }
+  
+  .range-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #E5E7EB; /* gray-200 */
+    border-radius: 3px;
+    position: relative;
+  }
+  
+  .range-bar-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(to right, #EF4444, #8B5CF6, #3B82F6); /* Red to Purple to Blue gradient */
+    border-radius: 3px;
+    /* if filled part does not reach end, its right edge should be flat */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .range-bar-filled.full-radius { /* Apply when rangePercentage is 100 */
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }
+  
+  
+  .range-bar-indicator-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the dot precisely */
+    height: 12px; /* Height of the dot */
+    width: 12px; /* Width of the dot */
+  }
+  
+  .range-bar-indicator {
+    width: 100%;
+    height: 100%;
+    background-color: #3B82F6; /* blue-500 */
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 1px #A5B4FC; /* indigo-200, subtle outer glow */
+  }
+  
+  .fifty-two-week-range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  .fifty-two-week-range .value {
+    font-weight: 600; /* semibold */
+  }
+  
+  @media (max-width: 900px) { /* Adjusted breakpoint */
+    .info-cards-container {
+      flex-direction: column;
+    }
+    .aapl-card {
+      flex-basis: auto; /* Reset basis */
+    }
+  }
+.info-cards-container{
+    background-color: var(--bg-color);
+}
